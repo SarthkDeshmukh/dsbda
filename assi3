@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("Mall_Customers.csv")
+df
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['Genre'] = le.fit_transform(df["Genre"])
+newdf=df
+df.mean()
+
+df.loc[:,'Age'].mean()
+
+df.mean(axis=1)[0:4]
+
+df.median()
+
+df.loc[:,'Age'].median()
+
+df.median(axis=1)[0:4]
+
+df.mode()
+
+df.loc[:,'Age'].mode()
+
+df.min()
+
+df.loc[:,'Age'].max(skipna = False)
+
+df.std()
+
+df.loc[:,'Age'].std()
+
+df.std(axis=1)[0:4]
+
+df.groupby(['Genre'])['Age'].mean()
