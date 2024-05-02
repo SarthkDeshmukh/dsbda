@@ -1,0 +1,9 @@
+
+import pandas as pd
+import numpy as np
+df = pd.read_csv("IRIS.csv")
+df
+df.dtypes
+df['petal_length']=df['petal_length'].astype("int")
+df.dtypes
+df
