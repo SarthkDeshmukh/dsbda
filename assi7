@@ -1,0 +1,40 @@
+import nltk
+
+from nltk.tokenize import sent_tokenize
+nltk.download('punkt')
+text="""Hello"""
+tokenized_text=sent_tokenize(text)
+print(tokenized_text)
+
+from nltk.tokenize import word_tokenize
+tokenized_word=word_tokenize(text)
+print(tokenized_word)
+
+fdist.most_common(2)
+
+tokens=nltk.word_tokenize(sent)
+print(tokens)
+
+import nltk
+nltk.download('averaged_perceptron_tagger')
+nltk.pos_tag(tokens)
+
+import pandas as pd
+data=pd.read_csv('train.tsv', sep='\t')
+data.head()
+
+data.info()  
+
+data.Sentiment.value_counts()
+
+import matplotlib.pyplot as plt
+Sentiment_count=data.groupby('Sentiment').count()
+plt.bar(Sentiment_count.index.values, Sentiment_count['Phrase'])
+plt.xlabel('Review Sentiments')
+plt.ylabel('Number of Review')
+plt.show()
+
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    text_counts, data['Sentiment'], test_size=0.3, random_state=1)
