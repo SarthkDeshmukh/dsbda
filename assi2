@@ -1,0 +1,49 @@
+import pandas as pd
+import numpy as np
+df=pd.read_csv("StudentsPerformanceTest1(1).csv")
+df
+
+df.isnull()
+
+series = pd.isnull(df["math score"])
+df[series]
+
+series1 = pd.notnull(df["math score"])
+df[series1]
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['gender'] = le.fit_transform(df["gender"])
+newdf=df
+
+missing_values = ["Na","na"]
+df = pd.read_csv("StudentsPerformanceTest1(1).csv", na_values = missing_values)
+df
+
+m_v = df['math score'].mean()
+df['math score'].fillna(value = m_v, inplace=True)
+df
+
+me_v = df['reading score'].median()
+df['reading score'].fillna(value = me_v, inplace=True)
+df
+
+import pandas as pd
+import numpy as np
+df = pd.read_csv("demo1.csv")
+df
+
+import seaborn as sns
+col = ['math score', 'reading score', 'writing score', 'placement score']
+df.boxplot(col)
+
+import matplotlib.pyplot as plt
+df = pd.read_csv("demo1.csv")
+fig, ax = plt.subplots(figsize = (18,10))
+ax.scatter(df['placement score'], df['placement offer count'])
+plt.show()
+
+
+
+
+
