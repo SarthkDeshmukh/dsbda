@@ -1,0 +1,27 @@
+
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("IRIS.csv")
+df
+
+df['petal_length']=df['petal_length'].astype("int")
+df.dtypes
+df
+
+from sklearn import preprocessing
+df.head()
+
+min_max_scaler=preprocessing.MinMaxScaler()
+x=df.iloc[:,:4]
+x_scaled=min_max_scaler.fit_transform(x)
+df_normalized=pd.DataFrame(x_scaled)
+df_normalized
+
+df['species'].unique()
+
+label_encoder=preprocessing.LabelEncoder()
+df['species']=label_encoder.fit_transform(df['species'])
+df['species'].unique()
+df
+     
